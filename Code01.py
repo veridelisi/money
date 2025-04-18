@@ -5,19 +5,19 @@ from IPython.display import display_svg
 
 def print_money_stocks():
     # The amount of deposits in each customer's account is added to the bank money variable.
-    Bank_Money = Xbankasi.get_balance('Customer A Deposit')[1]
-    Bank_Money += Xbankasi.get_balance('Customer B Deposit')[1]
-    Bank_Money += Xbankasi.get_balance('Customer C Deposit')[1]
-    Bank_Money += Ybankasi.get_balance('Customer A Deposit')[1]
-    Bank_Money += Ybankasi.get_balance('Customer B Deposit')[1]
-    Bank_Money += Ybankasi.get_balance('Customer C Deposit')[1]
+    Bank_Money = Xbank.get_balance('Customer A Deposit')[1]
+    Bank_Money += Xbank.get_balance('Customer B Deposit')[1]
+    Bank_Money += Xbank.get_balance('Customer C Deposit')[1]
+    Bank_Money += Ybank.get_balance('Customer A Deposit')[1]
+    Bank_Money += Ybank.get_balance('Customer B Deposit')[1]
+    Bank_Money += Ybank.get_balance('Customer C Deposit')[1]
     
     # The amount of cash held by each customer and bank is added to the central bank money variable.
-    Central_Bank_Money = MusteriA.get_balance('Cash')[1]
-    Central_Bank_Money += MusteriB.get_balance('Cash')[1]
-    Central_Bank_Money += MusteriC.get_balance('Cash')[1]
-    Central_Bank_Money += Xbankasi.get_balance('Cash')[1]
-    Central_Bank_Money += Ybankasi.get_balance('Cash')[1]
+    Central_Bank_Money = CustomerA.get_balance('Cash')[1]
+    Central_Bank_Money += CustomerB.get_balance('Cash')[1]
+    Central_Bank_Money += CustomerC.get_balance('Cash')[1]
+    Central_Bank_Money += Xbank.get_balance('Cash')[1]
+    Central_Bank_Money += Ybank.get_balance('Cash')[1]
     
     print("Bank Money:",Bank_Money)
     if Central_Bank_Money>0:
@@ -27,61 +27,61 @@ def print_money_stocks():
     print("Money Supply:",Bank_Money+Central_Bank_Money)
 
 def print_balance_sheets_and_money_stocks(*args):
-    MusteriA.book_end_of_period()
-    MusteriB.book_end_of_period()
-    MusteriC.book_end_of_period()
+    CustomerA.book_end_of_period()
+    CustomerB.book_end_of_period()
+    CustomerC.book_end_of_period()
     
     if len(args)==0:
         args = ("b1","b2","pA","pB","pC","cb")
-    if "b1" in args and Xbankasi.get_total_assets() > 0: display_svg(SVG(Xbankasi.draw_balance_sheet("Bank X", width=500)))
-    if "b2" in args and Ybankasi.get_total_assets() > 0: display_svg(SVG(Ybankasi.draw_balance_sheet("Bank Y", width=500)))
-    if "pA" in args and MusteriA.get_total_assets() > 0: display_svg(SVG(MusteriA.draw_balance_sheet("Customer A", width=500)))
-    if "pB" in args and MusteriB.get_total_assets() > 0: display_svg(SVG(MusteriB.draw_balance_sheet("Customer B", width=500)))
-    if "pC" in args and MusteriC.get_total_assets() > 0: display_svg(SVG(MusteriC.draw_balance_sheet("Customer C", width=500)))
-    if "cb" in args and Merkez_Bankasi.get_total_assets() > 0: display_svg(SVG(Merkez_Bankasi.draw_balance_sheet("Central Bank", width=500)))
+    if "b1" in args and Xbank.get_total_assets() > 0: display_svg(SVG(Xbank.draw_balance_sheet("Bank X", width=500)))
+    if "b2" in args and Ybank.get_total_assets() > 0: display_svg(SVG(Ybank.draw_balance_sheet("Bank Y", width=500)))
+    if "pA" in args and CustomerA.get_total_assets() > 0: display_svg(SVG(CustomerA.draw_balance_sheet("Customer A", width=500)))
+    if "pB" in args and CustomerB.get_total_assets() > 0: display_svg(SVG(CustomerB.draw_balance_sheet("Customer B", width=500)))
+    if "pC" in args and CustomerC.get_total_assets() > 0: display_svg(SVG(CustomerC.draw_balance_sheet("Customer C", width=500)))
+    if "cb" in args and Central_Bank.get_total_assets() > 0: display_svg(SVG(Central_Bank.draw_balance_sheet("Central Bank", width=500)))
         
     print_money_stocks()
     
 #  The residual account of each actor's balance sheet, (Asset-Liability), is called Equity.
-Xbankasi = Ledger(residual_account_name="Equity")
-Ybankasi = Ledger(residual_account_name="Equity")
-MusteriA = Ledger(residual_account_name="Equity")
-MusteriB = Ledger(residual_account_name="Equity")
-MusteriC = Ledger(residual_account_name="Equity")
-Merkez_Bankasi = Ledger(residual_account_name="Equity")
+Xbank = Ledger(residual_account_name="Equity")
+Ybank = Ledger(residual_account_name="Equity")
+CustomerA = Ledger(residual_account_name="Equity")
+CustomerB = Ledger(residual_account_name="Equity")
+CustomerC = Ledger(residual_account_name="Equity")
+Central_Bank = Ledger(residual_account_name="Equity")
 
 
 #  Assets and liabilities of banks are defined.
-Xbankasi.make_asset_accounts(['Cash','Credits','Reserves','Interbank Receivables'])
-Xbankasi.make_liability_accounts(['Customer A Deposit','Customer B Deposit','Customer C Deposit','Interbank Debt', 'Bond Issuance', 'Due to Central Bank'])
-Ybankasi.make_asset_accounts(['Cash','Credits','Reserves','Interbank Receivables'])
-Ybankasi.make_liability_accounts(['Customer A Deposit','Customer B Deposit','Customer C Deposit','Interbank Debt', 'Bond Issuance', 'Due to Central Bank'])
+Xbank.make_asset_accounts(['Cash','Credits','Reserves','Interbank Receivables'])
+Xbank.make_liability_accounts(['Customer A Deposit','Customer B Deposit','Customer C Deposit','Interbank Debt', 'Bond Issuance', 'Due to Central Bank'])
+Ybank.make_asset_accounts(['Cash','Credits','Reserves','Interbank Receivables'])
+Ybank.make_liability_accounts(['Customer A Deposit','Customer B Deposit','Customer C Deposit','Interbank Debt', 'Bond Issuance', 'Due to Central Bank'])
 
 # Customer's asset and liability items are identified.
-MusteriA.make_asset_accounts(['Cash','Deposits','Bank Bond'])
-MusteriA.make_liability_accounts(['Credits'])
-MusteriB.make_asset_accounts(['Cash','Deposits','Bank Bond'])
-MusteriB.make_liability_accounts(['Credits'])
-MusteriC.make_asset_accounts(['Cash','Deposits','Bank Bond'])
-MusteriC.make_liability_accounts(['Credits'])
+CustomerA.make_asset_accounts(['Cash','Deposits','Bank Bond'])
+CustomerA.make_liability_accounts(['Credits'])
+CustomerB.make_asset_accounts(['Cash','Deposits','Bank Bond'])
+CustomerB.make_liability_accounts(['Credits'])
+CustomerC.make_asset_accounts(['Cash','Deposits','Bank Bond'])
+CustomerC.make_liability_accounts(['Credits'])
 
 
 # Central Bank's assets and liabilities are defined.
-Merkez_Bankasi.make_asset_accounts(['Government Securities','Credits to Banks'])
-Merkez_Bankasi.make_liability_accounts(['Cash','Reserves'])
+Central_Bank.make_asset_accounts(['Government Securities','Credits to Banks'])
+Central_Bank.make_liability_accounts(['Cash','Reserves'])
 
 
 #Start
-Xbankasi.book(debit=[('Cash',50)],credit=[('Equity',50)])
-Ybankasi.book(debit=[('Cash',50)],credit=[('Equity',50)])
-MusteriA.book(debit=[('Cash',100)],credit=[('Equity',100)])
-Merkez_Bankasi.book(debit=[('Government Securities',200)],credit=[('Cash',200)])
+Xbank.book(debit=[('Cash',50)],credit=[('Equity',50)])
+Ybank.book(debit=[('Cash',50)],credit=[('Equity',50)])
+CustomerA.book(debit=[('Cash',100)],credit=[('Equity',100)])
+Central_Bank.book(debit=[('Government Securities',200)],credit=[('Cash',200)])
 
 #Start- Balance Sheets
-display_svg(SVG(Xbankasi.draw_balance_sheet("Bank X", width=500)))
-display_svg(SVG(Ybankasi.draw_balance_sheet("Bank Y", width=500)))
-display_svg(SVG(MusteriA.draw_balance_sheet("Customer A", width=500)))
-display_svg(SVG(Merkez_Bankasi.draw_balance_sheet("Central Bank", width=500)))
+display_svg(SVG(Xbank.draw_balance_sheet("Bank X", width=500)))
+display_svg(SVG(Ybank.draw_balance_sheet("Bank Y", width=500)))
+display_svg(SVG(CustomerA.draw_balance_sheet("Customer A", width=500)))
+display_svg(SVG(Central_Bank.draw_balance_sheet("Central Bank", width=500)))
 
 #Start- Money Supply
 print_money_stocks()
