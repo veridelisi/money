@@ -71,17 +71,17 @@ Merkez_Bankasi.make_asset_accounts(['Government Securities','Credits to Banks'])
 Merkez_Bankasi.make_liability_accounts(['Cash','Reserves'])
 
 
-#Başlangıç
+#Start
 Xbankasi.book(debit=[('Cash',50)],credit=[('Equity',50)])
 Ybankasi.book(debit=[('Cash',50)],credit=[('Equity',50)])
 MusteriA.book(debit=[('Cash',100)],credit=[('Equity',100)])
 Merkez_Bankasi.book(debit=[('Government Securities',200)],credit=[('Cash',200)])
 
-#Başlangıç- Bilançolar
+#Start- Balance Sheets
 display_svg(SVG(Xbankasi.draw_balance_sheet("Bank X", width=500)))
 display_svg(SVG(Ybankasi.draw_balance_sheet("Bank Y", width=500)))
 display_svg(SVG(MusteriA.draw_balance_sheet("Customer A", width=500)))
 display_svg(SVG(Merkez_Bankasi.draw_balance_sheet("Central Bank", width=500)))
 
-#Başlangıç- Para Arzı
+#Start- Money Supply
 print_money_stocks()
