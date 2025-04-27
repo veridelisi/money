@@ -13,10 +13,11 @@ pip install abcfinance
 
 ---
 
-## 👨‍💻 Author
-Developed by veridelisi .
+👨‍💻 Author
+Developed by veridelisi.
 
 Feel free to contribute, open issues, or suggest improvements!
 
-##📜 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+📜 License
+This project is licensed under the MIT License.
+See the LICENSE file for details.
