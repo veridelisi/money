@@ -1,65 +1,105 @@
-💵 Money Simulation Project
-This repository contains a collection of Python scripts simulating money creation and banking operations.
+# 💵 Money Simulation Project
 
-Each file (Code01.py, Code02.py, etc.) represents a specific part of the simulation process:
+This repository contains a collection of Python scripts simulating **money creation** and **banking operations**.
 
-Cash deposits
+Each file (`Code01.py`, `Code02.py`, etc.) represents a specific part of the simulation process:
 
-Bank loans
+- Cash deposits
+- Bank loans
+- Customer payments
+- Reserve movements
+- Money supply tracking
+- And more...
 
-Customer payments
+---
 
-Reserve movements
+## 🚀 Quick Start
 
-Money supply tracking
+### 1. Install the required package
 
-And more...
+> ❗ **Important:** Before running the scripts, install the `abcFinance` library:
 
-🚀 Quick Start
-1. Install required package
-❗ Before running the codes, make sure you install the abcFinance package.
-
-bash
-Copy
-Edit
+```bash
 pip install abcfinance
-2. Run the scripts
-Each file can be run individually:
 
-bash
-Copy
-Edit
-python Code01.py
-Or you can modify them to run sequentially to see the full simulation.
+📂 Project Structure
+📄 Code01.py
+Bank and customer initial setup.
 
-📄 Contents
+Create balance sheets for Bank X, Bank Y, Customer A, Customer B, Customer C, and Central Bank.
 
-File Name	Description
-Code01.py	Initial bank and customer setup
-Code02.py	Customer deposits cash into the bank
-Code03.py	Bank provides loan to customer
-Code04.py	Customer repays part of the loan
-Code05.py	Customer-to-customer payment
-Code06.py	Reserve management between banks
-Code07.py	Central Bank operations
-Code08.py	Bond issuance by banks
-Code09.py	Interbank borrowing
-Code10.py	Money supply updates
-Code11.py	Combined transaction flows
-...	and more coming soon!
+📄 Code02.py
+Customer A deposits cash into Bank X.
+
+Money stock increases through deposit creation.
+
+📄 Code03.py
+Bank X gives a loan to Customer B.
+
+Loan creates a new deposit in the banking system.
+
+📄 Code04.py
+Bank Y gives a loan to Customer C.
+
+Another new deposit created through lending.
+
+📄 Code05.py
+Customer B repays part of their loan principal to Bank X.
+
+Reduces outstanding loan and customer deposit.
+
+📄 Code06.py
+Customer A makes a payment to Customer B.
+
+Transfer between deposits without changing total money supply.
+
+📄 Code07.py
+Customer C pays Customer A.
+
+Interbank payment requiring reserve movements.
+
+📄 Code08.py
+Banks withdraw cash from the Central Bank.
+
+Reduces reserves, increases cash holdings.
+
+📄 Code09.py
+Customer A withdraws cash from Bank X.
+
+Cash leaves the banking system, reducing deposits.
+
+📄 Code10.py
+Bank Y borrows reserves from Bank X (interbank market transaction).
+
+📄 Code11.py
+Bank Y issues bonds to raise additional funds.
+
+📄 Code12.py
+Bank Y borrows directly from the Central Bank.
+
+📄 Code13.py
+Bank Y collects additional deposits from customers.
+
+📄 Code14.py
+Complex balance sheet operations combining multiple actions.
+
+📄 Code15.py
+Full simulation update.
+
+Integrates previous steps into a more advanced system evolution.
+
 📢 Notes
-These scripts are for educational purposes only.
+These scripts are developed for educational purposes to explain basic financial system mechanisms.
 
-You can extend the models by adding:
-
-New transaction types
+You can extend the project by adding:
 
 Interest rates
 
-Defaults
+Bank defaults
 
-Financial crises simulations
+Inflation and money velocity
+
+Central Bank interventions
 
 👨‍💻 Author
 Developed by veridelisi
-
