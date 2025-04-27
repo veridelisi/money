@@ -10,6 +10,24 @@ Before running the scripts, install the `abcFinance` library:
 
 pip install abcfinance
 
+## 📂 Project Structure
+### 📄 Code01.py
+Bank and customer initial setup.
+
+Create balance sheets for:
+
+Bank X
+
+Bank Y
+
+Customer A
+
+Customer B
+
+Customer C
+
+
+
 
 ## 👨‍💻 Author
 
