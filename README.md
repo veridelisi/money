@@ -11,7 +11,7 @@ Before running the scripts, install the `abcFinance` library:
 pip install abcfinance
 
 ## 📂 Project Structure
-### 📄 [Code01.py] (https://github.com/veridelisi/money/blob/main/Code01.py)
+### 📄 [Code01.py](https://github.com/veridelisi/money/blob/main/Code01.py)
 Bank and customer initial setup.
 
 Create balance sheets for:
