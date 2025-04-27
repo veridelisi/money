@@ -11,10 +11,10 @@ Before running the scripts, install the `abcFinance` library:
 ```bash
 pip install abcfinance
 
-📂 Project Structure
+## 📂 Project Structure
 Each file in this repository represents a specific step in the simulation process. Below is a detailed overview of the project structure, organized by key concepts and actions.
 
-📄 Code01.py
+###📄 Code01.py
 Description:
 Initial setup of banks and customers.
 
