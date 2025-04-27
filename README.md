@@ -11,10 +11,12 @@ Before running the scripts, install the `abcFinance` library:
 ```bash
 pip install abcfinance
 
-👨‍💻 Author
+---
+
+## 👨‍💻 Author
 Developed by veridelisi .
 
 Feel free to contribute, open issues, or suggest improvements!
 
-📜 License
+##📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
