@@ -65,13 +65,12 @@ CustomerB.make_liability_accounts(['Credits'])
 CustomerC.make_asset_accounts(['Cash','Deposits','Bank Bond'])
 CustomerC.make_liability_accounts(['Credits'])
 
-
 # Central Bank's assets and liabilities are defined.
 Central_Bank.make_asset_accounts(['Government Securities','Credits to Banks'])
 Central_Bank.make_liability_accounts(['Cash','Reserves'])
 
 
-#Start
+#Start- Balance Sheets
 Xbank.book(debit=[('Cash',50)],credit=[('Equity',50)])
 Ybank.book(debit=[('Cash',50)],credit=[('Equity',50)])
 CustomerA.book(debit=[('Cash',100)],credit=[('Equity',100)])
